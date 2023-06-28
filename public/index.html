@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="flex justify-center items-center rounded-b-[6px] w-[100%] h-full bg-blue-500">
+        <h1 class="text-5xl p-10 mt-20 title text-white/80">API Documentation:</h1>
+    </div>
+
+    <div class="container">
+        <div class="m-20">
+            <h2 class="text-3xl font-bold text-stone-700 courier">Toys API</h2>
+            <table class="w-full border table mb-10">
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <th class="rounded-tl-[10px]">HTTP Method:</th>
+                    <th>Route</th>
+                    <th>Description</th>
+                    <th class="rounded-tr-[10px]">Parameters / Request Body</th>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td>get</td>
+                    <td>/toys</td>
+                    <td>returns list of toys matching search query's</td>
+                    <td>
+                        <ul class="ulv">
+                            <li><span class="font-bold">page</span> page number to display (default: 1).</li>
+                            <li class=""><span class="font-bold">search</span> (optional) the search query to match the name and info fields (default: null)</li>
+                            <li><span class="font-bold">category </span>(optional) cat query displays items that match the category</li>
+                            <li class="list-none"><strong>link: </strong><a class="text-blue-700" href="http://localhost:3003/toys/?page=1&s=car">http://localhost:3003/toys/?page=1&s=car</a></li>
+                            <li class="list-none"><strong>link: </strong><a class="text-blue-700" href="http://localhost:3003/toys/?page=1&cat=RC">http://localhost:3003/toys/?page=1&cat=RC</a></li>
+                        </ul>
+                        
+                    </td>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td>get</td>
+                    <td>/toys/prices</td>
+                    <td>returns list of toys filtered by price range</td>
+                    <td>
+                        <ul class="ulv">
+                            <li><span class="font-bold">page</span> page number to display page (default: 1)</li>
+                            <li><span class="font-bold">min</span> min query to display items equall or greater than min (optional)</li>
+                            <li><span class="font-bold">max</span> max query to display items equall or lower than max (optional)</li>
+                            <li class="list-none"><strong>link: </strong><a class="text-blue-700" href="http://localhost:3003/toys/prices/?min=30&max=200">http://localhost:3003/toys/prices/?min=30&max=200</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td>get</td>
+                    <td>/toys/single/:id</td>
+                    <td>returns toy matching parameter</td>
+                    <td>
+                        <ul class="ulv">
+                            <li><span class="font-bold">id</span> parameter that returns matching id</li>
+                            <li class="list-none"><strong>link: </strong><a class="text-blue-700" href="http://localhost:3003/toys/single/647d93fe1bea4649292350d3">http://localhost:3003/toys/single/:id</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td>post</td>
+                    <td>/toys</td>
+                    <td>adds a new toy.<br>token is required!</td>
+                    <td>
+                        <ul class="ulv">
+                            <li><span class="font-bold">Request Body: </span>adds data from body.</li>
+                        <li>
+                            <span class="font-bold">Toy Schema:</span>
+                            <span class="courier">
+                                <br>{
+                                    <br>name: String,
+                                    <br>info: String,
+                                    <br>category: String,
+                                    <br>img_url: String,
+                                    <br>price: Number
+                                <br>}
+                            </span>
+                        </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td>put</td>
+                    <td>/toys/:edit</td>
+                    <td>updates toy matching parameter<br>Token is required!</td>
+                    <td>
+                        <ul class="ulv">
+                            <li><span class="font-bold">id</span> toy of matchinf id to update</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td class="rounded-bl-[10px]">delete</td>
+                    <td>/toys/:delete</td>
+                    <td>deletes toy matching parameter</td>
+                    <td class="rounded-br-[10px]"><li><span class="font-bold">id: </span>id of item to delete</li></td>
+                </tr>
+            </table>
+            <h2 class="text-3xl font-bold text-stone-700 courier">Users API</h2>
+            <table class="w-full border table">
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <th class="rounded-tl-[10px]">HTTP Method:</th>
+                    <th>Route:</th>
+                    <th>Description:</th>
+                    <th class="rounded-tr-[10px]">Parameters / Request Body:</th>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td>get</td>
+                    <td>/users</td>
+                    <td>returns message.</td>
+                    <td><ul class="ulv">
+                        <li><span class="font-bold">message: </span>users endpoint!</li>
+                        <li class="list-none"><strong>link: </strong><a class="text-blue-700" href="http://localhost:3003/users">http://localhost:3003/users</a></li>
+                    </ul></td>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td>post</td>
+                    <td>/toys</td>
+                    <td>adds a new user</td>
+                    <td>
+                        <ul class="ulv">
+                            <li>
+                                <span class="font-bold">Request Body: </span>adds data from body.
+                            </li>
+                            <li>
+                                <span class="font-bold">User Schema:</span>
+                                <span class="courier"><br>{
+                                    <br>name: String,
+                                    <br>email: string,
+                                    <br>password: string,
+                                    <br>}</span>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="bg-orange-200 border-[3px] border-white">
+                    <td class="rounded-bl-[10px]">post</td>
+                    <td>/toys/logIn</td>
+                    <td>returns Token.</td>
+                    <td class="rounded-br-[10px]">
+                        <ul class="ulv">
+                            <li>
+                                <span class="font-bold">Login Schema</span>
+                                <span class="courier"><br>{
+                                    <br>email: String,
+                                    <br>password: String,
+                                    <br>}
+                                </span>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div>
+        <div class="bg-cyan-200 h-[25px] flex justify-center items-center">
+            <p class="text-sm text-center font-bold">Copyright &#169; 2023 | made by Simi Gantshar</p>
+        </div>
+    </div>
+</body>
+</html>
